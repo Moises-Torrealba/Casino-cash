@@ -9,6 +9,12 @@ export default class Cl_mCasino {
             callback(` ${jugador.nombre} ya jugo hoy en el casino.`);
             return;
         }
+        // Validar tragamonedas repetida
+        const TragamonedasRepetido = this.jugadores.find((g) => g.tragamonedas.toLowerCase() === jugador.tragamonedas.toLowerCase());
+        if (TragamonedasRepetido) {
+            callback(`la tragamonedas ${jugador.tragamonedas} ya fue usada`);
+            return;
+        }
         // Si todo está bien, agregar el jugador
         this.jugadores.push(jugador);
         callback(false);

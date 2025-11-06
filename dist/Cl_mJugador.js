@@ -28,7 +28,7 @@ export default class Cl_mJugador {
     existeJugador(Jugador) {
         if (Jugador === null)
             return false;
-        if (this.nombre === Jugador)
+        if (this.nombre === Jugador || this.tragamonedas === Jugador)
             return true;
         return false;
     }

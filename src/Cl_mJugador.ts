@@ -42,7 +42,7 @@ export default class Cl_mJugador {
   
   existeJugador(Jugador: string | null): boolean {
     if (Jugador === null) return false;
-    if (this.nombre === Jugador) return true;
+    if (this.nombre === Jugador || this.tragamonedas === Jugador) return true;
     return false;
   }
   toJSON(): iJugador {
