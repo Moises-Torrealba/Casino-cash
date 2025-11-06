@@ -11,7 +11,7 @@ export default class Cl_mCasino {
     jugador: Cl_mJugador;
     callback: (error: string | false) => void;
   }): void {
-    // Validar nombre de grupo repetido
+    // Validar nombre de jugador repetido
     const nombreRepetido = this.jugadores.find(
       (g) => g.nombre.toLowerCase() === jugador.nombre.toLowerCase()
     );
@@ -19,7 +19,7 @@ export default class Cl_mCasino {
       callback(` ${jugador.nombre} ya jugo hoy en el casino.`);
       return;
     }
-    // Si todo está bien, agregar el grupo
+    // Si todo está bien, agregar el jugador
     this.jugadores.push(jugador);
     callback(false);
   }

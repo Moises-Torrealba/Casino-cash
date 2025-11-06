@@ -6,7 +6,6 @@ export default class Cl_vCasino extends Cl_vGeneral {
   private divJugadoresRegistrados: HTMLDivElement;
   constructor() {
     super({ formName: "Casino" });
-    console.debug("Cl_vCasino: constructor inicializado");
     this.btAgregarJugador = this.crearHTMLButtonElement("btAgregarJugador", {
       onclick: () => this.agregarJugador(),
     });
@@ -28,7 +27,6 @@ export default class Cl_vCasino extends Cl_vGeneral {
     });
   }
   agregarJugador() {
-    console.debug("Cl_vCasino: agregarJugador invocado");
     let nombre = prompt("Ingrese el nombre del Jugador:");
     if (!nombre) return;
     let tragamonedas = prompt("Ingrese La Tragamonedas que jugo:");

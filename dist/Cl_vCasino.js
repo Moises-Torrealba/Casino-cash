@@ -2,7 +2,6 @@ import Cl_vGeneral, { tHTMLElement } from "./tools/Cl_vGeneral.js";
 export default class Cl_vCasino extends Cl_vGeneral {
     constructor() {
         super({ formName: "Casino" });
-        console.debug("Cl_vCasino: constructor inicializado");
         this.btAgregarJugador = this.crearHTMLButtonElement("btAgregarJugador", {
             onclick: () => this.agregarJugador(),
         });
@@ -26,7 +25,6 @@ export default class Cl_vCasino extends Cl_vGeneral {
         });
     }
     agregarJugador() {
-        console.debug("Cl_vCasino: agregarJugador invocado");
         let nombre = prompt("Ingrese el nombre del Jugador:");
         if (!nombre)
             return;
