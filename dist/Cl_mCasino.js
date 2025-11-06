@@ -4,13 +4,13 @@ export default class Cl_mCasino {
     }
     agregarJugador({ jugador, callback, }) {
         // Validar nombre de jugador repetido
-        const nombreRepetido = this.jugadores.find((g) => g.nombre.toLowerCase() === jugador.nombre.toLowerCase());
+        const nombreRepetido = this.jugadores.find((J) => J.nombre.toLowerCase() === jugador.nombre.toLowerCase());
         if (nombreRepetido) {
             callback(` ${jugador.nombre} ya jugo hoy en el casino.`);
             return;
         }
         // Validar tragamonedas repetida
-        const TragamonedasRepetido = this.jugadores.find((g) => g.tragamonedas.toLowerCase() === jugador.tragamonedas.toLowerCase());
+        const TragamonedasRepetido = this.jugadores.find((J) => J.tragamonedas.toLowerCase() === jugador.tragamonedas.toLowerCase());
         if (TragamonedasRepetido) {
             callback(`la tragamonedas ${jugador.tragamonedas} ya fue usada`);
             return;
@@ -21,7 +21,7 @@ export default class Cl_mCasino {
     }
     listar() {
         let jugadores = [];
-        this.jugadores.forEach((g) => jugadores.push(g.toJSON()));
+        this.jugadores.forEach((J) => jugadores.push(J.toJSON()));
         return jugadores;
     }
 }
