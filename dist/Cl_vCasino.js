@@ -21,7 +21,7 @@ export default class Cl_vCasino extends Cl_vGeneral {
             this.divJugadoresRegistrados.innerHTML += `<tr>
             <td>${jugador.nombre}</td>
             <td>${jugador.tragamonedas}</td>
-            <td>${jugador.premio}</td>
+            <td>${jugador.premio} bs</td>
         </tr>`;
         });
     }
