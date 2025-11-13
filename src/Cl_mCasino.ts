@@ -2,7 +2,7 @@ import Cl_mJugador, { iJugador } from "./Cl_mJugador.js";
 
 
 export default class Cl_mCasino {
-  private jugadores:  Cl_mJugador[] = [];
+  private jugadorP:  Cl_mJugador[] = [];
 
   agregarJugador({
     jugador,
@@ -12,28 +12,29 @@ export default class Cl_mCasino {
     callback: (error: string | false) => void;
   }): void {
     // Validar nombre de jugador repetido
-    const nombreRepetido = this.jugadores.find(
+    const nombreRepetido = this.jugadorP.find(
       (J) => J.nombre.toLowerCase() === jugador.nombre.toLowerCase()
     );
     if (nombreRepetido) {
-      callback(` ${jugador.nombre} ya jugo hoy en el casino.`);
+      callback(` ${jugador.nombre} ya jugó hoy en el casino.`);
       return;
     }
     // Validar tragamonedas repetida
-    const TragamonedasRepetido = this.jugadores.find(
+    const TragamonedasRepetido = this.jugadorP.find(
       (J) => J.tragamonedas.toLowerCase() === jugador.tragamonedas.toLowerCase()
     );
     if (TragamonedasRepetido) {
       callback(`la tragamonedas ${jugador.tragamonedas} ya fue usada`);
       return;
     }
-    // Si todo está bien, agregar el jugador
-    this.jugadores.push(jugador);
+    this.jugadorP.push(jugador);
+    localStorage.setItem("jugador", JSON.stringify(this.listar()));
     callback(false);
   }
+  
   listar(): iJugador[] {
     let jugadores: iJugador[] = [];
-    this.jugadores.forEach((J) => jugadores.push(J.toJSON()));
+    this.jugadorP.forEach((J) => { jugadores.push(J.toJSON())});
     return jugadores;
   }
 }

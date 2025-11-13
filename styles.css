@@ -1,73 +1,132 @@
-section {
-  border: 3px solid blue;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 3cap;
-  width: 300px;
+/* Fuente moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root{
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --accent: #0b5ed7; /* azul primario */
+  --accent-2: #00a99d; /* verde secundario */
+  --muted: #6b7280;
+  --text: #0f1724;
+  --round: 10px;
 }
-label {
-  margin-top: 5px;
+
+/* Reset y básicos */
+*{box-sizing: border-box}
+html,body{height:100%}
+body{
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, #f6f9ff 0%, var(--bg) 100%);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
 }
-h3 {
-  color: white;
-  background-color: rgb(1, 1, 201);
-  padding: 3px;
-  border-radius: 5cap;
+
+/* Encabezado principal */
+h3{
+  margin: 0;
+  background: linear-gradient(90deg, var(--accent), #0056b3);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: calc(var(--round) - 2px);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
   text-align: center;
+  box-shadow: 0 6px 18px rgba(11,94,215,0.12);
+  width: auto !important; /* sobreescribe estilos inline */
 }
-h4 {
-  margin-top: 1px;
-  margin-bottom: 0px;
-  font-style: italic;
-  font-weight: normal;
-  color: seagreen;
+
+/* Secciones como tarjetas */
+section{
+  background: var(--card);
+  border-radius: var(--round);
+  padding: 18px;
+  width: min(980px, 94%);
+  box-shadow: 0 6px 18px rgba(15,23,36,0.06);
+  border: 1px solid rgba(15,23,36,0.04);
 }
-button {
-  margin-top: 10px;
-  background-color: blue;
-  color: white;
-  border-radius: 1cap;
-  padding: 5px;
-  font-size: 10px;
+
+section > div{display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* Botones modernos */
+button{
+  appearance: none;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+  box-shadow: 0 6px 14px rgba(11,94,215,0.14);
 }
-input {
-  width: 80px;
+button:hover{transform: translateY(-2px)}
+button:active{transform: translateY(0)}
+button.secondary{
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(11,94,215,0.12);
+  box-shadow: none;
 }
-table,
-th,
-td {
-  border: 1px solid black;
-  text-align: center;
+
+/* Inputs y etiquetas */
+label{display:block;margin-bottom:6px;color:var(--muted);font-size:.9rem}
+input, select, textarea{
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid rgba(15,23,36,0.08);
+  background: #fff;
+  font-size: .95rem;
+  color: var(--text);
+  outline: none;
 }
-#agenda {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
+input:focus, select:focus, textarea:focus{box-shadow:0 6px 18px rgba(11,94,215,0.08);border-color:var(--accent)}
+input{min-width:120px}
+
+/* Tablas limpias y responsivas */
+table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:8px}
+thead th{
+  text-align:left;padding:12px 14px;background:linear-gradient(90deg,var(--accent),#0077ff);color:#fff;font-weight:600;font-size:.95rem
 }
-#ficha {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  margin-top: 10px;
+tbody td{padding:12px 14px;border-top:1px solid rgba(15,23,36,0.04);vertical-align:middle;color:var(--muted)}
+tbody tr:nth-child(even){background:rgba(11,94,215,0.03)}
+table th, table td{text-align:center}
+
+/* Column helpers */
+.colCurrency{text-align:right;padding-left:10px}
+.colNumber{width:70px}
+
+/* Layout helpers (preservando clases existentes) */
+#agenda, #ficha, .divSalida{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+#ficha{margin-top:8px}
+#mainForm{display:flex;flex-direction:column;width:100%;max-width:520px;gap:10px}
+
+.spanInfo{font-size:.9rem;font-style:italic;color:var(--muted)}
+
+/* Pequeños ajustes tipográficos */
+h4{margin:0;margin-top:6px;margin-bottom:0;font-style:italic;font-weight:500;color:var(--accent-2)}
+
+/* Responsividad */
+@media (max-width:640px){
+  body{padding:12px}
+  section{padding:14px}
+  thead th{font-size:.85rem}
+  tbody td{font-size:.92rem}
+  #mainForm{max-width:100%}
+  button{width:100%}
 }
-#mainForm {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-}
-.colCurrency {
-  text-align: right;
-  padding-left: 10px;
-}
-.colNumber {
-  column-width: 50px;
-}
-.divSalida {
-  display: flex;
-  flex-direction: column;
-}
-.spanInfo {
-  font-size: 10px;
-  font-style: italic;
-  color: rgb(0, 0, 0);
-}
+
+/* Accesibilidad: foco visible */
+:focus{outline: 3px solid rgba(11,94,215,0.12);outline-offset:2px}
+
+/* Utilidades pequeñas */
+.muted{color:var(--muted)}
+.center{text-align:center}
